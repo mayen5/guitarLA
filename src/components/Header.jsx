@@ -1,14 +1,6 @@
-import React from 'react'
-import { useMemo } from 'react'
-import { MAX_ITEMS, MIN_ITEMS } from '../App'
+import { useCart } from '../hooks/useCart'
 
-export const Header = ({ cart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart }) => {
-
-  const isEmptyCart = useMemo(() => cart.length === 0, [ cart ])
-
-  const totalCart = useMemo(() => {
-    return cart.reduce((acc, item) => (acc += item?.price * item?.quantity), 0)
-  }, [ cart ])
+export const Header = ({ cart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart, isEmptyCart, totalCart, MAX_ITEMS, MIN_ITEMS }) => {
 
   return (
     <header className="py-5 header">
